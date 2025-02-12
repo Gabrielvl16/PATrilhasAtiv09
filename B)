@@ -1,0 +1,46 @@
+using System;
+
+namespace B
+{
+    class Program
+    {
+        static void Main()
+        {
+            string[] nomesAlunos = new string[5];
+            float[] notasAlunos1 = new float[5];
+            float[] notasAlunos2 = new float[5];
+            float[] mediaNotas = new float[5];
+
+            // Loop para coletar dados dos 5 alunos
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine("Digite o nome do aluno " + (i + 1) + ": ");
+                nomesAlunos[i] = Console.ReadLine();
+
+                Console.WriteLine("Digite a nota 1 do aluno " + nomesAlunos[i] + ": ");
+                notasAlunos1[i] = float.Parse(Console.ReadLine());
+
+                Console.WriteLine("Digite a segunda nota do aluno " + nomesAlunos[i] + ": ");
+                notasAlunos2[i] = float.Parse(Console.ReadLine());
+
+                // Calculando a média
+                mediaNotas[i] = (notasAlunos1[i] + notasAlunos2[i]) / 2;
+
+                // Limpar a tela após cada entrada (não é necessário em todos os ambientes, mas funciona bem em SharpDevelop)
+                Console.Clear();
+            }
+
+            // Imprimindo os dados dos alunos
+            Console.WriteLine("\nListagem de Alunos:");
+            Console.WriteLine("ID | Nome | Nota 1 | Nota 2 | Média");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.WriteLine((i + 1) + " | " + nomesAlunos[i] + " | " + notasAlunos1[i] + " | " + notasAlunos2[i] + " | " + mediaNotas[i]);
+            }
+
+            // Aguardando o usuário pressionar uma tecla antes de finalizar
+            Console.Write("Pressione qualquer tecla para continuar . . .");
+            Console.ReadKey(true);
+        }
+    }
+}
