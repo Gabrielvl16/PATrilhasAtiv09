@@ -1,0 +1,29 @@
+using System;
+
+namespace b
+{
+	class Program
+	{
+		public static void Main()
+		{
+           // Criando vetor é variavel da soma dos valores 
+           double[] numerosDecimais = new  double[5];
+           double soma = 0;
+           
+           // Algoritmo para receber números do usuário e somar 
+           for(int i = 0; i < numerosDecimais.Length; i++)
+           {
+            Console.WriteLine("Digite o "+ i +"° número decimal: ");
+            numerosDecimais[i] = double.Parse(Console.ReadLine());
+            soma += numerosDecimais[i];
+           }
+           
+           // Algoritmo para calcular a media dos valores do usuário e exibir na tela
+           double media = soma / numerosDecimais.Length;
+           Console.WriteLine("A media dos valores é: "+ media.ToString("F2"));
+
+           Console.Write("Pressione qualquer tecla para continuar . . .");
+           Console.ReadKey(true);
+		}
+	}
+}
