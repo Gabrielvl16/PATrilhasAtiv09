@@ -1,0 +1,32 @@
+using System;
+
+namespace b
+{
+	class Program
+	{
+		public static void Main()
+		{
+           // Criando vetor é variavel do maior número
+           int[] numerosInteiros = new int[5];
+           int maiorNumero = 0;
+           
+           // Algoritmo para conferir qual foi o maior número digitado pelo usuário
+           Console.WriteLine("Digite 5 números inteiros"); 
+           for(int i = 0; i < numerosInteiros.Length; i++)
+           {
+            Console.WriteLine("Digite o "+ (i + 1) + "° número: ");
+            numerosInteiros[i] = int.Parse(Console.ReadLine());
+            
+            if(maiorNumero  <= numerosInteiros[i])
+            {
+                maiorNumero = numerosInteiros[i];
+            }
+           }
+           // Exibindo resultado
+           Console.WriteLine("O maior número digitado foi: "+ maiorNumero);
+           
+           Console.Write("Pressione qualquer tecla para continuar . . .");
+           Console.ReadKey(true);
+		}
+	}
+}
