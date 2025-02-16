@@ -1,0 +1,46 @@
+using System;
+using System.Globalization;
+
+namespace b
+{
+	class Program
+	{
+		public static void Main()
+		{
+           // Criando dois vetores de valor inteiro
+           int[] vetorUm = new int[5];
+           int[] vetorDois = new int[5];
+           int soma = 0;
+
+           // Algoritimo para receber valor do primeiro vetor 
+           Console.WriteLine("Digite o valor do primeiro vetor: ");
+           for(int i = 0; i < vetorUm.Length; i++)
+           {
+             Console.WriteLine("Digite o "+ (i + 1) +" número: ");
+             vetorUm[i] = int.Parse(Console.ReadLine());
+             Console.Clear();
+           }
+
+           // Algoritmo para receber valor do segundo vetor
+           Console.WriteLine("Digite o valor do segundo vetor: ");
+           for(int j = 0; j < vetorDois.Length; j++)
+           {
+            Console.WriteLine("Digite o "+ (j + 1) +" número: ");
+            vetorDois[j] = int.Parse(Console.ReadLine());
+            Console.Clear();
+           }
+           
+           // Algoritimo para calcular a soma do primeiro e segundo vetor
+           for(int k = 0; k < vetorDois.Length; k++)
+           {
+            soma += vetorUm[k] + vetorDois[k];
+           }
+
+           // Exibindo resultado
+           Console.WriteLine("O resultado da soma dos dois vetores é: "+ soma);
+
+           Console.Write("Pressione qualquer tecla para continuar . . .");
+           Console.ReadKey(true);
+		}
+	}
+}
