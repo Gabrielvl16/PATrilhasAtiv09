@@ -1,0 +1,91 @@
+using System;
+
+namespace b
+{
+    class Program
+    {
+        public static void Main()
+        {
+            string[] nomeMercadoria = new string[40];
+            int[] valorMercadoria = new int[40];
+            int totalCadastrados = 0; // Controla quantos itens foram cadastrados
+
+            do
+            {
+                Console.Clear(); // Limpa o terminal antes de exibir o menu
+                Console.WriteLine("====MENU====");
+                Console.WriteLine("1- Cadastrar mercadorias");
+                Console.WriteLine("2- Valor total em mercadorias da empresa");
+                Console.WriteLine("3- Sair");
+                Console.WriteLine("============");
+                
+                if (!int.TryParse(Console.ReadLine(), out int opcao))
+                {
+                    Console.WriteLine("Opção inválida! Digite um número do menu.");
+                    Console.ReadKey(); // Aguarda entrada antes de limpar a tela novamente
+                    continue;
+                }
+
+                switch (opcao)
+                {
+                    case 1:
+                        Console.Clear();
+                        Console.Write("Digite quantas mercadorias deseja cadastrar: ");
+                        
+                        if (!int.TryParse(Console.ReadLine(), out int numerosCadastrar) || numerosCadastrar <= 0)
+                        {
+                            Console.WriteLine("Número inválido. Tente novamente.");
+                            Console.ReadKey();
+                            continue;
+                        }
+
+                        if (totalCadastrados + numerosCadastrar > 40)
+                        {
+                            Console.WriteLine("Limite máximo de 40 mercadorias atingido!");
+                            Console.ReadKey();
+                            continue;
+                        }
+
+                        for (int i = 0; i < numerosCadastrar; i++)
+                        {
+                            Console.Write($"Digite o nome da mercadoria {i + 1}: ");
+                            nomeMercadoria[totalCadastrados + i] = Console.ReadLine();
+
+                            Console.Write($"Digite o valor da mercadoria {i + 1}: ");
+                            while (!int.TryParse(Console.ReadLine(), out valorMercadoria[totalCadastrados + i]) || valorMercadoria[totalCadastrados + i] < 0)
+                            {
+                                Console.WriteLine("Valor inválido! Digite um número inteiro positivo.");
+                            }
+                        }
+
+                        totalCadastrados += numerosCadastrar;
+                        Console.WriteLine("Cadastro concluído! Pressione qualquer tecla para continuar...");
+                        Console.ReadKey();
+                        break;
+
+                    case 2:
+                        Console.Clear();
+                        int valorTotal = 0;
+                        for (int i = 0; i < totalCadastrados; i++)
+                        {
+                            valorTotal += valorMercadoria[i];
+                        }
+                        Console.WriteLine($"O valor total das mercadorias cadastradas é: R$ {valorTotal}");
+                        Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
+                        Console.ReadKey();
+                        break;
+
+                    case 3:
+                        Console.Write("Pressione qualquer tecla para sair...");
+                        Console.ReadKey();
+                        return;
+
+                    default:
+                        Console.WriteLine("Opção inválida. Escolha entre 1 e 3.");
+                        Console.ReadKey();
+                        break;
+                }
+            } while (true);
+        }
+    }
+}
