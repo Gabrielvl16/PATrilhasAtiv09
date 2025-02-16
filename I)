@@ -1,0 +1,32 @@
+using System;
+
+namespace b
+{
+	class Program
+	{
+		public static void Main()
+		{
+           // Criando vetor para armazenar os nomes
+           string[] nomes = new string[10];
+
+           // Recebendo os nomes do usuário
+           Console.WriteLine("Digite 10 nomes: ");
+           for(int i = 0; i < nomes.Length; i++)
+           {
+            Console.WriteLine("Digite o "+ (i + 1) +"° nome: ");
+            nomes[i] = Console.ReadLine();
+            Console.Clear();
+           }
+
+           // Exibindo os nomes do usuário
+           Console.WriteLine("Lista dos nomes:");
+           for(int j = 0; j < nomes.Length; j++)
+           {
+            Console.WriteLine((j + 1)+"° nome: "+ nomes[j]);
+           }
+
+           Console.Write("Pressione qualquer tecla para continuar . . .");
+           Console.ReadKey(true);
+		}
+	}
+}
